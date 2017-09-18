@@ -9,8 +9,23 @@ public class BabySitter {
 	}
 
 	public int getPay(int startTime, int endTime) {
-		return (bedTime - startTime) * 12 + (endTime - bedTime) * 8;
-			
+		int pay = 0;
+		if (endTime >= bedTime && startTime < bedTime) {
+			pay += (endTime - bedTime) * 8;
+		}
+		if(startTime < bedTime && endTime >= bedTime) {
+			pay += (bedTime - startTime) * 12;
+		}
+		if(startTime >= bedTime) {
+			pay += (endTime - startTime) * 8;
+		}
+		if(endTime < bedTime) {
+			pay += (endTime - startTime) * 12;
+		}
+		return pay;
 	}
+	
+	
+	
 
 }

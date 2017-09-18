@@ -30,5 +30,17 @@ public class BabySitterTest {
 		BabySitter sitter = new BabySitter(8);
 		Assert.assertEquals(68, sitter.getPay(5, 12));
 	}
+	
+	@Test
+	public void startAfterBedTimeResultsInOnlyBedTimePay() {
+		BabySitter sitter = new BabySitter(8);
+		Assert.assertEquals(24, sitter.getPay(9, 12));
+	}
+	
+	@Test
+	public void endTimeBeforeBedTimeResultsInOnlyBeforeBedTimePay() {
+		BabySitter sitter = new BabySitter(9);
+		Assert.assertEquals(36, sitter.getPay(5, 8));
+	}
 
 }
