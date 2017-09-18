@@ -9,11 +9,9 @@ public class BabySitter {
 	}
 
 	public int getPay(int startTime, int endTime) {
-		int pay = 0;
-		pay = getHoursBetweenStartAndBedTime(startTime, endTime) * 12 +
+		return getHoursBetweenStartAndBedTime(startTime, endTime) * 12 +
 				getHoursBetweenBedTimeAndMidnight(startTime, endTime) * 8 +
 				getHoursBetweenMidnightAndEndTime(startTime, endTime) * 16;
-		return pay;
 	}
 
 
