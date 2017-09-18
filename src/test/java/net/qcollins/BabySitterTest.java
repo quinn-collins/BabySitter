@@ -9,14 +9,26 @@ public class BabySitterTest {
 
 	@Test
 	public void whenBedtimeIsSevenAndStartTimeIsFiveBabySitterMakesTwentyFour() {
-		BabySitter sitter = new BabySitter(19);
-		Assert.assertEquals(24, sitter.getPay(17, 19));
+		BabySitter sitter = new BabySitter(7);
+		Assert.assertEquals(24, sitter.getPay(5, 7));
 	}
 	
 	@Test
 	public void whenBedTimeIsEightAndStartIsFiveBabySitterMakesThirtyTwo() {
-		BabySitter sitter = new BabySitter(20);
-		Assert.assertEquals(36, sitter.getPay(17, 20));
+		BabySitter sitter = new BabySitter(8);
+		Assert.assertEquals(36, sitter.getPay(5, 8));
+	}
+	
+	@Test
+	public void whenBedTimeIsTenAndBabySitterWorksFromBedTimeToMidnightTheyMakeSixteen() {
+		BabySitter sitter = new BabySitter(10);
+		Assert.assertEquals(16, sitter.getPay(10, 12));
+	}
+	
+	@Test
+	public void whenStartTimeIsFiveBedTimeIsEightAndEndTimeIsMidnightGetsPaidTwelveFromStartToBedAndEightFromBedToMidnight() {
+		BabySitter sitter = new BabySitter(8);
+		Assert.assertEquals(68, sitter.getPay(5, 12));
 	}
 
 }
