@@ -9,11 +9,10 @@ public class BabySitter {
 	}
 
 	public int getPay(int startTime, int endTime) {
-		return getHoursBetweenStartAndBedTime(startTime, endTime) * 12 +
-				getHoursBetweenBedTimeAndMidnight(startTime, endTime) * 8 +
-				getHoursBetweenMidnightAndEndTime(startTime, endTime) * 16;
+		return getHoursBetweenStartAndBedTime(startTime, endTime) * 12
+				+ getHoursBetweenBedTimeAndMidnight(startTime, endTime) * 8
+				+ getHoursBetweenMidnightAndEndTime(startTime, endTime) * 16;
 	}
-
 
 	private int getHoursBetweenStartAndBedTime(int startTime, int endTime) {
 		if (startTime >= bedTime) {
@@ -30,24 +29,20 @@ public class BabySitter {
 		if (bedTime >= 12 || endTime <= bedTime) {
 			return 0;
 		}
-		if(startTime >= bedTime) {
+		if (startTime >= bedTime) {
 			return 12 - startTime;
 		}
 		return 12 - bedTime;
 	}
 
 	private int getHoursBetweenMidnightAndEndTime(int startTime, int endTime) {
-		if(endTime <= 12) {
+		if (endTime <= 12) {
 			return 0;
 		}
-		if(startTime > 12) {
+		if (startTime > 12) {
 			return endTime - startTime;
 		}
 		return endTime - 12;
 	}
-
-	
-	
-	
 
 }
